@@ -11,7 +11,10 @@ while (num_ticks < max_ticks) {
         for (;;) {
             uint64_t t = mach_absolute_time();
             // equiv to untilDate:[NSDate distantPast]
-            NSEvent *event = [NSApp nextEventMatchingMask:NSEventMaskAny untilDate:nil inMode:NSDefaultRunLoopMode dequeue:YES]; 
+            NSEvent *event = [NSApp nextEventMatchingMask:NSEventMaskAny 
+                                                untilDate:nil 
+                                                   inMode:NSDefaultRunLoopMode
+                                                  dequeue:YES]; 
             t = mach_absolute_time() - t;
             ticks[num_ticks] = (Tick) { 
                 .mach_time_diff = t, 
