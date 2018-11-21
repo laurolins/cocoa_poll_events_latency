@@ -1,4 +1,4 @@
-# Cocoa poll events test
+# Cocoa Poll Events Latency Test
 
 Simple script measuring the latency of the `nextEventMatching` call
 for a custom game loop.
@@ -35,3 +35,33 @@ while (num_ticks < max_ticks) {
     nanosleep(&sleep_time,&actual_sleep_time);    
 }
 ```
+
+
+```
+# event type legend
+0   nil                               
+1   NSEventTypeLeftMouseDown          
+2   NSEventTypeLeftMouseUp            
+3   NSEventTypeRightMouseDown         
+4   NSEventTypeRightMouseUp           
+5   NSEventTypeMouseMoved             
+6   NSEventTypeLeftMouseDragged       
+7   NSEventTypeRightMouseDragged      
+8   NSEventTypeMouseEntered           
+9   NSEventTypeMouseExited            
+10  NSEventTypeKeyDown                
+11  NSEventTypeKeyUp                  
+12  NSEventTypeFlagsChanged           
+13  NSEventTypeAppKitDefined          
+14  NSEventTypeSystemDefined          
+15  NSEventTypeApplicationDefined     
+16  NSEventTypePeriodic               
+17  NSEventTypeCursorUpdate           
+22  NSEventTypeScrollWheel            
+23  NSEventTypeTabletPoint            
+24  NSEventTypeTabletProximity        
+25  NSEventTypeOtherMouseDown         
+26  NSEventTypeOtherMouseUp           
+27  NSEventTypeOtherMouseDragged      
+```
+
