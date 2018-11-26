@@ -64,11 +64,7 @@ int main()
 					}
 				}
 			}
-
-			// simulate update and vsynced render with nanosleep
-			static struct timespec sleep_time = { .tv_sec=0, .tv_nsec=16000000 };
-			struct timespec actual_sleep_time = { 0 };
-			nanosleep(&sleep_time,&actual_sleep_time);	
+			usleep(15000); // microseconds sleep
 		}
 
 		// dump events and their time differences into

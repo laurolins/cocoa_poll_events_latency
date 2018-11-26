@@ -5,7 +5,6 @@ for a custom game loop.
 
 ```c
 while (num_ticks < max_ticks) {
-
     // poll events
     @autoreleasepool {
         for (;;) {
@@ -28,11 +27,7 @@ while (num_ticks < max_ticks) {
             }
         }
     }
-
-    // simulate update and vsynced render with nanosleep
-    static struct timespec sleep_time = { .tv_sec=0, .tv_nsec=16000000 };
-    struct timespec actual_sleep_time = { 0 };
-    nanosleep(&sleep_time,&actual_sleep_time);    
+    usleep(15000); // simulate update and vsynced render: microseconds sleep
 }
 ```
 
