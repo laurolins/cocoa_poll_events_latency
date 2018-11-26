@@ -1,4 +1,6 @@
-# Cocoa Poll Events Latency Test
+# Latency of Polling Next Event if Available on MacOS
+
+[Question on StackOverflow](https://stackoverflow.com/questions/53490335/latency-of-polling-next-event-if-available-on-macos)
 
 ```bash
 # compile
@@ -11,7 +13,6 @@ clang -g -ggdb -O2 -framework Cocoa -x objective-c -o main main.m
 R -f plot.R
 ```
 
-[https://stackoverflow.com/questions/53490335/latency-of-polling-next-event-if-available-on-macos](https://stackoverflow.com/questions/53490335/latency-of-polling-next-event-if-available-on-macos)
 
 ## Description
 
