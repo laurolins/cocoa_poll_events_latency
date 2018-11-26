@@ -1,5 +1,18 @@
 # Cocoa Poll Events Latency Test
 
+```bash
+# compile
+bash build.sh
+
+# run test
+./main
+
+# generate plot using R
+bash build.sh plot
+```
+
+## Description
+
 Simple script measuring the latency of the `nextEventMatching` call
 for a custom game loop.
 
@@ -29,7 +42,6 @@ while (num_ticks < max_ticks) {
     usleep(15000); // simulate update and vsynced render: microseconds sleep
 }
 ```
-
 
 ```
 # event type legend

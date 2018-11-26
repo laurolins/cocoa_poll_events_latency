@@ -8,8 +8,8 @@ e <- table$e
 x <- 1:nrow(table)
 y.rng <- range(y)
 
-filename <- sprintf("nextEventMatchingMask_%s.pdf", format(Sys.time(), "%Y%m%d%H%M%S"))
-pdf(filename, width=20,height=12,pointsize=18)
+filename <- sprintf("nextEventMatchingMask_%s.png", format(Sys.time(), "%Y%m%d%H%M%S"))
+png(filename, width=1200,height=800,pointsize=18)
 
 par(mar=c(3,5,1,1))
 par(mfrow=c(2,1))
@@ -39,5 +39,5 @@ axis(1,xticks,las=2,cex.axis=1)
 axis(2,yticks.log,las=1,cex.axis=1)
 dev.off()
 
-system(sprintf("ln -sf %s nextEventMatchingMask_latest.pdf",filename))
+system(sprintf("ln -sf %s nextEventMatchingMask_latest.png",filename))
 
