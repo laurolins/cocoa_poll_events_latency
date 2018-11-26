@@ -2,13 +2,13 @@
 
 ```bash
 # compile
-bash build.sh
+clang -g -ggdb -O2 -framework Cocoa -x objective-c -o main main.m 
 
 # run test
 ./main
 
 # generate plot using R
-bash build.sh plot
+R -f plot.R
 ```
 
 ## Description
