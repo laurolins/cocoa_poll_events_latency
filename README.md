@@ -9,11 +9,11 @@ while (num_ticks < max_ticks) {
     @autoreleasepool {
         for (;;) {
             uint64_t t = mach_absolute_time();
-            // equiv to untilDate:[NSDate distantPast]
+            
             NSEvent *event = [NSApp nextEventMatchingMask:NSEventMaskAny 
                                                 untilDate:nil 
                                                    inMode:NSDefaultRunLoopMode
-                                                  dequeue:YES]; 
+                                                  dequeue:YES]; // same as untilDate:[NSDate distantPast]
             t = mach_absolute_time() - t;
             ticks[num_ticks] = (Tick) { 
                 .mach_time_diff = t, 
