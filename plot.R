@@ -1,4 +1,4 @@
-y.cap <- 16
+y.cap <- 17
 
 table <- read.csv("ticks",sep="|")
 y <- table$t / 1e6  # make it microseconds
@@ -17,7 +17,7 @@ par(mfrow=c(2,1))
 plot(0,type="n",xlim=range(x),ylim=y.rng,xlab="",ylab="milliseconds",axes=F)
 box()
 xticks <- pretty(x)
-yticks <- pretty(y.rng)
+yticks <- seq(0,16,2)
 abline(h=yticks,col=gray(0.8))
 abline(v=xticks,col=gray(0.8))
 abline(h=16,col="red",lwd=2)
