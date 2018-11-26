@@ -9,7 +9,6 @@ while (num_ticks < max_ticks) {
     @autoreleasepool {
         for (;;) {
             uint64_t t = mach_absolute_time();
-            
             NSEvent *event = [NSApp nextEventMatchingMask:NSEventMaskAny 
                                                 untilDate:nil 
                                                    inMode:NSDefaultRunLoopMode
