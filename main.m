@@ -32,6 +32,13 @@ int main()
 		// [window setTitle:appName];
 		[window makeKeyAndOrderFront:nil];
 
+		// disable App Nap
+#ifdef DISABLE_APP_NAP
+		[[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiatedAllowingIdleSystemSleep reason:@"whatever"];
+		// id activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiatedAllowingIdleSystemSleep reason:@"whatever"];
+		// [[NSProcessInfo processInfo] endActivity:activity];
+#endif
+
 		typedef struct {
 			uint64_t mach_time_diff;
 			uint64_t event;
@@ -40,6 +47,34 @@ int main()
 		int max_ticks = 1000; // capture first 1000 events from nextEventMatchingMask
 		int num_ticks = 0;
 		Tick *ticks = malloc(sizeof(Tick) * 5000);
+
+#ifdef CUSTOM_RUN_LOOP
+		NSString *run_loop = @"custom_run_loop";
+#else
+		NSString *run_loop = NSDefaultRunLoopMode;
+#endif
+
+#ifdef CUSTOM_EVENTS_MASK
+		NSEventMask mask =
+		 	NSEventMaskAppKitDefined | // without this event being extracted, no screen updates?
+		 	NSEventMaskOtherMouseDragged |
+		 	NSEventMaskRightMouseDragged |
+		 	NSEventMaskLeftMouseDragged |
+		 	NSEventMaskMouseMoved |
+		 	NSEventMaskLeftMouseDown |
+		 	NSEventMaskLeftMouseUp |
+		 	NSEventMaskRightMouseDown |
+		 	NSEventMaskRightMouseUp |
+		 	NSEventMaskOtherMouseDown |
+		 	NSEventMaskOtherMouseUp |
+		 	NSEventMaskScrollWheel |
+		 	NSEventMaskFlagsChanged |
+		 	NSEventMaskKeyDown |
+		 	NSEventMaskKeyUp;
+#else
+		NSEventMask mask = NSEventMaskAny;
+#endif
+
 
 		// keep pumping events using nextEventMatchingMask 
 		// and measuring its latency in a sleep-vsynced-simulated way
@@ -50,7 +85,7 @@ int main()
 				for (;;) {
 					uint64_t t = mach_absolute_time();
 					// equiv to untilDate:[NSDate distantPast]
-					NSEvent *event = [NSApp nextEventMatchingMask:NSEventMaskAny untilDate:nil inMode:NSDefaultRunLoopMode dequeue:YES]; 
+					NSEvent *event = [NSApp nextEventMatchingMask:mask untilDate:nil inMode:run_loop dequeue:YES]; 
 					t = mach_absolute_time() - t;
 					ticks[num_ticks] = (Tick) { 
 						.mach_time_diff = t, 
