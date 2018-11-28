@@ -93,7 +93,7 @@ int main()
 					};
 					++num_ticks;
 					if (event) {
-						[NSApp sendEvent:event];
+						// [NSApp sendEvent:event];
 					} else {
 						break;
 					}
