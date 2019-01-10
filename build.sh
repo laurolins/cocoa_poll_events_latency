@@ -1,7 +1,7 @@
 #!env bash
 if [ "$1" == "plot" ]; then
 	R -f plot.R
-if [ "$1" == "stats" ]; then
+elif [ "$1" == "stats" ]; then
 	R -f stats.R
 elif [ "$1" == "profile" ]; then
 	instruments -t "Time Profiler" ./main

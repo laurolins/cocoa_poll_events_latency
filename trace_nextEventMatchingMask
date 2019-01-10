@@ -1,0 +1,18 @@
+Weight     Self Weight     Symbol Name
+801.00 ms       100.0%     7.00 ms  -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]
+707.00 ms        88.2%     2.00 ms    _DPSNextEvent
+697.00 ms        87.0%     0 s          _BlockUntilNextEventMatchingListInModeWithFilter
+696.00 ms        86.8%     2.00 ms        ReceiveNextEventCommon
+683.00 ms        85.2%     1.00 ms          RunCurrentEventLoopInMode
+655.00 ms        81.7%     1.00 ms            CFRunLoopRunSpecific
+618.00 ms        77.1%     4.00 ms              __CFRunLoopRun
+488.00 ms        60.9%     1.00 ms                __CFRunLoopDoSource1
+487.00 ms        60.7%     0 s                      __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE1_PERFORM_FUNCTION__
+487.00 ms        60.7%     1.00 ms                     __CFMachPortPerform
+468.00 ms        58.4%     1.00 ms                       MessageHandler(__CFMachPort*, void*, long, void*)
+466.00 ms        58.1%     3.00 ms                         PullEventsFromWindowServerOnConnection(unsigned int, unsigned char, __CFMachPortBoost*)
+379.00 ms        47.3%     0 s                               SLEventCreateNextEvent
+361.00 ms        45.0%     0 s                                 SLSGetNextEventRecordInternal
+283.00 ms        35.3%     1.00 ms                               CGSSnarfAndDispatchDatagrams
+171.00 ms        21.3%     1.00 ms                                 mach_msg
+
