@@ -85,7 +85,9 @@ int main()
 				for (;;) {
 					uint64_t t = mach_absolute_time();
 					// equiv to untilDate:[NSDate distantPast]
-					NSEvent *event = [NSApp nextEventMatchingMask:mask untilDate:nil inMode:run_loop dequeue:YES]; 
+			       		NSEvent *event = [NSApp nextEventMatchingMask:mask untilDate:nil inMode:run_loop dequeue:YES]; 
+					// NSEvent *event = [NSApp nextEventMatchingMask:mask untilDate:[NSDate dateWithTimeIntervalSinceNow:0] inMode:run_loop dequeue:YES]; 
+
 					t = mach_absolute_time() - t;
 					ticks[num_ticks] = (Tick) { 
 						.mach_time_diff = t, 
